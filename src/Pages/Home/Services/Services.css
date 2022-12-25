@@ -1,0 +1,8 @@
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 50px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}

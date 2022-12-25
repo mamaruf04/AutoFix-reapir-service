@@ -1,0 +1,8 @@
+.expert-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin: 50px auto;
+  max-width: 1300px;
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "John Smith",
+    "image": "https://randomuser.me/api/portraits/men/7.jpg",
+    "experience": "10 years",
+    "bio": "John has been a mechanic for over 10 years and has expertise in all types of vehicle repairs. He is highly skilled in diagnostics, engine repairs, and transmission work. He prides himself on his attention to detail and ability to get the job done right the first time."
+  },
+  {
+    "id": 2,
+    "name": "Jane Doe",
+    "image": "https://randomuser.me/api/portraits/men/4.jpg",
+    "experience": "5 years",
+    "bio": "Jane is a highly skilled mechanic with over 5 years of experience. She specializes in electrical and computer system repairs, and is known for her excellent diagnostic skills. She is friendly, professional, and always goes the extra mile to ensure that her customers are satisfied."
+  },
+  {
+    "id": 3,
+    "name": "Michael Williams",
+    "image": "https://randomuser.me/api/portraits/men/10.jpg",
+    "experience": "15 years",
+    "bio": "Michael is a master mechanic with over 15 years of experience. He has expertise in all types of vehicle repairs and is highly skilled in diagnostics and engine repairs. He is known for his attention to detail and his ability to get the job done right the first time."
+  },
+  {
+    "id": 4,
+    "name": "Samantha Johnson",
+    "image": "https://randomuser.me/api/portraits/men/5.jpg",
+    "experience": "8 years",
+    "bio": "Samantha is a highly skilled mechanic with over 8 years of experience. She specializes in transmission repairs and is known for her excellent diagnostic skills. She is friendly, professional, and always goes the extra mile to ensure that her customers are satisfied."
+  },
+  {
+    "id": 5,
+    "name": "David Brown",
+    "image": "https://randomuser.me/api/portraits/men/3.jpg",
+    "experience": "12 years",
+    "bio": "David is a master mechanic with over 12 years of experience. He has expertise in all types of vehicle repairs and is highly skilled in diagnostics, engine repairs, and transmission work. He is known for his attention to detail and his ability to get the job done right the first time."
+  },
+  {
+    "id": 6,
+    "name": "Brandon Howl",
+    "image": "https://randomuser.me/api/portraits/men/8.jpg",
+    "experience": "8 years",
+    "bio": "Brandon is a master mechanic with over 12 years of experience. He has expertise in all types of vehicle repairs and is highly skilled in diagnostics, engine repairs, and transmission work. He is known for his attention to detail and his ability to get the job done right the first time."
+  }
+]
