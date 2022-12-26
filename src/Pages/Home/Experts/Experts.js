@@ -13,7 +13,7 @@ const Experts = () => {
     },[])
     return (
       <>
-      <h1 className='text-center'>Our Experts</h1>
+      <h1 className='text-center fw-bold mt-5'>Our Experts</h1>
         <div className="expert-list">
           {experts.map((expert) => (
             <Expert key={expert.id} expert={expert}></Expert>
