@@ -4,6 +4,8 @@ import About from "./Pages/About/About";
 import Experts from "./Pages/Home/Experts/Experts";
 import Home from "./Pages/Home/Home/Home";
 import Services from "./Pages/Home/Services/Services";
+import Login from "./Pages/Login/Login/Login";
+import Register from "./Pages/Login/Register";
 import ServiceDetail from "./Pages/SeviceDetail/ServiceDetail";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Header from "./Pages/Shared/Header/Header";
@@ -19,6 +21,8 @@ function App() {
         <Route path="/services" element={<Services></Services>}></Route>
         <Route path="/service/:serviceId" element={<ServiceDetail></ServiceDetail>}></Route>
         <Route path="/experts" element={<Experts></Experts>}></Route>
+        <Route path="/signup" element={<Register></Register>}></Route>
+        <Route path="/login" element={<Login></Login>}></Route>
       </Routes>
       <Footer></Footer>
     </div>

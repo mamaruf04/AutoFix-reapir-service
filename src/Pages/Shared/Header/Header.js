@@ -1,9 +1,17 @@
+import { signOut } from "firebase/auth";
 import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/Logo2.svg";
+import auth from "../../../firebase.init";
 
 const Header = () => {
+  const [user] = useAuthState(auth);
+
+  const handleSignOut = () =>{
+    signOut(auth);
+  }
   return (
     <Navbar
       style={{ background: "#4141ff", fontWeight: "500" }}
@@ -72,22 +80,34 @@ const Header = () => {
           <Button variant="outline-info">Search</Button>
         </Form> */}
         <Nav className="ml-auto gap-3">
-          <Nav.Link
-            as={Link}
-            to="login"
-            className="fw-bold text-white btn btn-outline-info"
-            style={{ fontSize: "18px" }}
-          >
-            Login
-          </Nav.Link>
-          <Nav.Link
-            as={Link}
-            to="signup"
-            className="fw-bold text-white btn btn-outline-info"
-            style={{ fontSize: "18px" }}
-          >
-            Sign Up
-          </Nav.Link>
+          {!user ? (
+            <>
+              <Nav.Link
+                as={Link}
+                to="login"
+                className="fw-bold text-white btn btn-outline-info"
+                style={{ fontSize: "18px" }}
+              >
+                Login
+              </Nav.Link>
+              <Nav.Link
+                as={Link}
+                to="signup"
+                className="fw-bold text-white btn btn-outline-info"
+                style={{ fontSize: "18px" }}
+              >
+                Sign Up
+              </Nav.Link>
+            </>
+          ) : (
+            <Nav.Link
+            onClick={handleSignOut}
+              className="fw-bold text-white btn btn-outline-info"
+              style={{ fontSize: "18px" }}
+            >
+              Sign Out
+            </Nav.Link>
+          )}
         </Nav>
       </Navbar.Collapse>
     </Navbar>

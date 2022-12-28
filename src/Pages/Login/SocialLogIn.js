@@ -1,0 +1,50 @@
+import React, { useEffect } from "react";
+import {
+  useSignInWithGithub,
+  useSignInWithGoogle
+} from "react-firebase-hooks/auth";
+import { useLocation, useNavigate } from "react-router-dom";
+import auth from "../../firebase.init";
+
+const SocialLogIn = () => {
+  const [signInWithGoogle, user] = useSignInWithGoogle(auth);
+  const [signInWithGitHub, user2] = useSignInWithGithub(auth);
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user || user2) {
+      navigate(from, { replace: true });
+    }
+  }, [user,user2, navigate, from]);
+
+  return (
+    <div>
+      {/* divider */}
+      <div className="d-flex align-items-center justify-content-center">
+        <div className="border-bottom border-dark w-25"></div>
+        <p className="m-2 px-2">or</p>
+        <div className="border-bottom border-dark w-25"></div>
+      </div>
+      {/* social login  */}
+      <div className="container d-block d-md-flex justify-content-around mt-3 text-center rounded">
+        <button
+          className="border-0 py-2 px-3 mt-1 rounded bg-primary text-white"
+          onClick={() => signInWithGoogle()}
+        >
+          Continue with Google
+        </button>
+        <button
+          className="border-0 py-2 px-3 mt-1 rounded bg-primary text-white"
+          onClick={() => signInWithGitHub()}
+        >
+          Continue with Github
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default SocialLogIn;
