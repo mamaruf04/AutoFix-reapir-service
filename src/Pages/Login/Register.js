@@ -128,6 +128,8 @@ const Register = () => {
                 </div>
               </div>
 
+              {error && <p className="text-danger">{error.message}</p>}
+
               <div className="input-field button">
                 <input
                   type={match ? "submit" : "button"}

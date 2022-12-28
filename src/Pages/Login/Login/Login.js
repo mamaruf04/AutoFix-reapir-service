@@ -87,8 +87,8 @@ const Login = () => {
                     Forgot password?
                   </Link>
                 </div>
-                {passResetError ? (
-                  <p className="text-danger mt-1">{passResetError.message}</p>
+                {passResetError || error ? (
+                  <p className="text-danger mt-1">{passResetError?.message || error?.message}</p>
                 ) : (
                   ""
                 )}
