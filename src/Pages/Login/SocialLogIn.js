@@ -5,10 +5,11 @@ import {
 } from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
+import Loading from "../Shared/Loading/Loading";
 
 const SocialLogIn = () => {
-  const [signInWithGoogle, user] = useSignInWithGoogle(auth);
-  const [signInWithGitHub, user2] = useSignInWithGithub(auth);
+  const [signInWithGoogle, user, googleLoading] = useSignInWithGoogle(auth);
+  const [signInWithGitHub, user2, gitLoading] = useSignInWithGithub(auth);
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
 
@@ -19,6 +20,10 @@ const SocialLogIn = () => {
       navigate(from, { replace: true });
     }
   }, [user,user2, navigate, from]);
+
+  if (googleLoading || gitLoading) {
+    return <Loading></Loading>
+  }
 
   return (
     <div>
