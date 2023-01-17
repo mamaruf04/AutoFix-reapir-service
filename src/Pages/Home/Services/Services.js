@@ -12,8 +12,12 @@ const Services = () => {
     },[])
 
     return (
-      <div>
-        <h1 className='text-center mt-5 fw-bold'>Our Services</h1>
+      <div className="">
+        <h4 className="text-center" style={{ color: "#265df2", marginTop: "60px" }}>
+          Services
+        </h4>
+        <h1 className="text-center fw-bold">Our Service Area</h1>
+        <p className='text-center px-2 mx-auto text-muted'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit quasi facilis.</p>
         <div className="card-container">
           {services.map((service) => (
             <Service key={service.id} service={service}></Service>

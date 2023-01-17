@@ -13,7 +13,17 @@ const Experts = () => {
     },[])
     return (
       <>
-      <h1 className='text-center fw-bold mt-5'>Our Experts</h1>
+        <h4
+          className="text-center"
+          style={{ color: "#265df2", marginTop: "60px" }}
+        >
+          Experts
+        </h4>
+        <h1 className="text-center fw-bold ">Our Experts</h1>
+        <p className="text-center px-2 mx-auto text-muted">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias,
+          reprehenderit quasi facilis.
+        </p>
         <div className="expert-list">
           {experts.map((expert) => (
             <Expert key={expert.id} expert={expert}></Expert>

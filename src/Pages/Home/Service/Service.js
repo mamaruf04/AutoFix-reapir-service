@@ -15,7 +15,7 @@ const navigateServiceDetail = (id) => {
       <div className="card">
         <img src={image} alt={name} />
         <h2 className="card-title">{name}</h2>
-        <p className="card-description">{description.slice(0, 35)}..</p>
+        <p className="card-description">{description.slice(0, 30)}..</p>
         <p className="card-price">Price: ${price}</p>
         <button onClick={() => navigateServiceDetail(id)} className="book-button">
           Book Now

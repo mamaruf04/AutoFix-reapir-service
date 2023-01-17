@@ -6,6 +6,7 @@ import {
 } from "react-firebase-hooks/auth";
 import { toast, Toaster } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import loginImg from "../../../assets/login-img.svg";
 import auth from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
 import "../accountShared.css";
@@ -52,7 +53,8 @@ const Login = () => {
   // }
   return (
     <>
-      <div className="account-section">
+      <div className="account-section d-flex align-items-center justify-content-evenly my-5 flex-wrap">
+        <img  className="w-50 img-fluid" src={loginImg} alt="" />
         <div className="account-container">
           <div className="forms">
             <div className="form login">
