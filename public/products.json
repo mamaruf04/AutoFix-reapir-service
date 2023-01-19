@@ -1,0 +1,44 @@
+[
+  {
+    "_id": 1,
+    "name": "Car Engine Plug",
+    "price": 100,
+    "rating": 4.0,
+    "image": "https://i.ibb.co/ZWjFpbC/1.png"
+  },
+  {
+    "_id": 2,
+    "name": "Car Socket Jobar ",
+    "price": 200,
+    "rating": 4.5,
+    "image": "https://i.ibb.co/Fgd5nTV/2.png"
+  },
+  {
+    "_id": 3,
+    "name": "Car Air Filter",
+    "price": 150,
+    "rating": 3.5,
+    "image": "https://i.ibb.co/BztW3mR/3.png"
+  },
+  {
+    "_id": 4,
+    "name": "Car Battery",
+    "price": 50,
+    "rating": 2.5,
+    "image": "https://i.ibb.co/vXbTBhG/4.png"
+  },
+  {
+    "_id": 5,
+    "name": "Car tire",
+    "price": 300,
+    "rating": 5.0,
+    "image": "https://i.ibb.co/ZTxXRmw/5.png"
+  },
+  {
+    "_id": 6,
+    "name": "Car Repair Instrument",
+    "price": 450,
+    "rating": 4.0,
+    "image": "https://i.ibb.co/5FTFf3Z/6.png"
+  }
+]
