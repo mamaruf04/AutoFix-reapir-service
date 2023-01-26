@@ -39,14 +39,14 @@ const SocialLogIn = () => {
           className="border-0 py-2 px-2 mt-1 rounded bg-primary text-white"
           onClick={() => signInWithGoogle()}
         >
-          <i class="uil uil-google fs-5 me-1 text-black"></i>
+          <i className="uil uil-google fs-5 me-1 text-black"></i>
           Continue with Google
         </button>
         <button
           className="border-0 py-2 px-2 mt-1 rounded bg-primary text-white"
           onClick={() => signInWithGitHub()}
         >
-          <i class="uil uil-github fs-5 me-1 text-black"></i>
+          <i className="uil uil-github fs-5 me-1 text-black"></i>
           Continue with Github
         </button>
       </div>

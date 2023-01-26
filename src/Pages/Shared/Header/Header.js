@@ -54,6 +54,16 @@ const Header = () => {
           >
             Experts
           </Nav.Link>
+          {user && (
+            <Nav.Link
+              as={Link}
+              to="orders"
+              className="font-weight-bold text-black py-1 fw-semibold fs-5"
+              style={{ fontSize: "18px" }}
+            >
+              Orders
+            </Nav.Link>
+          )}
           <Nav.Link
             as={Link}
             to="about"
