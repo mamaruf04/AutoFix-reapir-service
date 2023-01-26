@@ -9,7 +9,11 @@ const RequireAuth = ({ children }) => {
   const location = useLocation();
 
   if (loading) {
-    return <Loading></Loading>
+    return (
+      <div className="d-flex align-items-center justify-content-center vh-100 vw-100">
+        <Loading></Loading>
+      </div>
+    );
   }
 
   if (!user) {

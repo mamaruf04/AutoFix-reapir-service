@@ -14,10 +14,10 @@ const Header = () => {
   }
   return (
     <Navbar
-      style={{ background: "#4141ff", fontWeight: "500" }}
+      style={{ background: "white", fontWeight: "500" }}
       expand="lg"
       sticky="top"
-      className="px-3  shadow-sm"
+      className="px-3  shadow-lg"
     >
       <Navbar.Brand
         as={Link}
@@ -33,7 +33,7 @@ const Header = () => {
           <Nav.Link
             as={Link}
             to="home"
-            className="text-white"
+            className="text-black py-1 fw-semibold fs-5"
             style={{ fontSize: "18px" }}
           >
             Home
@@ -41,7 +41,7 @@ const Header = () => {
           <Nav.Link
             as={Link}
             to="services"
-            className="fw-medium text-white"
+            className="fw-medium text-black py-1 fw-semibold fs-5"
             style={{ fontSize: "18px" }}
           >
             Services
@@ -49,7 +49,7 @@ const Header = () => {
           <Nav.Link
             as={Link}
             to="experts"
-            className="font-weight-bold text-white"
+            className="font-weight-bold text-black py-1 fw-semibold fs-5"
             style={{ fontSize: "18px" }}
           >
             Experts
@@ -57,7 +57,7 @@ const Header = () => {
           <Nav.Link
             as={Link}
             to="about"
-            className="font-weight-bold text-white"
+            className="font-weight-bold text-black py-1 fw-semibold fs-5"
             style={{ fontSize: "18px" }}
           >
             About
@@ -65,27 +65,19 @@ const Header = () => {
           <Nav.Link
             as={Link}
             to="contact"
-            className="font-weight-bold text-white"
+            className="font-weight-bold text-black py-1 fw-semibold fs-5"
             style={{ fontSize: "18px" }}
           >
             Contact
           </Nav.Link>
         </Nav>
-        {/* <Form className="d-flex">
-          <FormControl
-            type="text"
-            placeholder="Search"
-            className="mr-sm-2 ms-2 me-2"
-          />
-          <Button variant="outline-info">Search</Button>
-        </Form> */}
         <Nav className="ml-auto gap-3">
           {!user ? (
             <>
               <Nav.Link
                 as={Link}
                 to="login"
-                className="fw-bold text-white border rounded-3"
+                className="fw-bold text-black py-1 fw-semibold fs-5 border rounded-3 border-dark"
                 style={{ fontSize: "18px" }}
               >
                 Login
@@ -93,7 +85,7 @@ const Header = () => {
               <Nav.Link
                 as={Link}
                 to="signup"
-                className="fw-bold text-white border rounded-3"
+                className="fw-bold text-black py-1 fw-semibold fs-5 border rounded-3 border-dark"
                 style={{ fontSize: "18px" }}
               >
                 Sign Up
@@ -102,7 +94,7 @@ const Header = () => {
           ) : (
             <Nav.Link
               onClick={handleSignOut}
-              className="fw-bold text-white btn btn-outline-info"
+              className="fw-bold text-black py-1 fw-semibold fs-5 border border-dark rounded-3"
               style={{ fontSize: "18px" }}
             >
               Sign Out

@@ -6,7 +6,7 @@ const ServiceFacilities = ({facility}) => {
         style={{ backgroundColor: "#F3F3F3", width: "48%" }}
         className="rounded-2 py-3 px-3 border-top border-primary border-3"
       >
-        <h4>{facility.name}</h4>
+        <h4 className='fw-bold fs-3'>{facility.name}</h4>
         <p className='text-muted fs-5'>{facility.details}</p>
       </div>
     );

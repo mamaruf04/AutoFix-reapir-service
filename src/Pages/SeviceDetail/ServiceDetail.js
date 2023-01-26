@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { NavLink, useParams } from "react-router-dom";
+import { Link, NavLink, useParams } from "react-router-dom";
+import footerImg from "../../assets/service-details-footer-img.jpg";
 import UseServices from "../Hooks/UseServices";
 import ServiceFacilities from "./ServiceFacilities";
 
@@ -22,7 +23,7 @@ const ServiceDetail = () => {
         <Col className="" sm={4}>
           <div
             style={{ backgroundColor: "#F3F3F3" }}
-            className="p-4 rounded-2 cursor-pointer"
+            className="p-4 rounded-2 "
           >
             <h2 className="fw-bold mb-4">Services</h2>
             {services.map((service) => (
@@ -40,7 +41,45 @@ const ServiceDetail = () => {
               </NavLink>
             ))}
           </div>
+
+          <h1 className="fw-bold text-center my-4">Price: ${service.price}</h1>
+          <Link
+            className="btn w-100 py-3 bg-primary text-white rounded-2 text-decoration-none fs-5 fw-semibold"
+            to={`/checkout/${service._id}`}
+          >
+            Proceed CheckOut
+          </Link>
+
+          {/* --------download--------- */}
+          <div
+            style={{ backgroundColor: "#151515" }}
+            className="p-4 rounded-2 my-4"
+          >
+            <h2 className="fw-bold mb-4 text-white">Download</h2>
+
+            {/* --------download 1------ */}
+            <div className="text-white d-flex justify-content-between  gap-3 ">
+              <i className="uil uil-file-download-alt fs-1 flex-shrink-1"></i>
+              <div className="w-100">
+                <h4 className="fs-5 ">Our Brochure</h4>
+                <p className="text-muted mb-0">DOWNLOAD</p>
+              </div>
+              <Link className="uil uil-arrow-down rounded-2 py-2 px-3  bg-primary fs-3 text-white text-decoration-none"></Link>
+            </div>
+
+            {/* ---------download 2------ */}
+            <div className="text-white d-flex justify-content-between  gap-3 mt-4">
+              <i className="uil uil-file-download-alt fs-1 flex-shrink-1"></i>
+              <div className="w-100">
+                <h4 className="fs-5 ">Company Details</h4>
+                <p className="text-muted mb-0">DOWNLOAD</p>
+              </div>
+              <Link className="uil uil-arrow-down rounded-2 py-2 px-3  bg-primary fs-3 text-white text-decoration-none"></Link>
+            </div>
+          </div>
         </Col>
+
+        {/* -------------------------grid2------------------ */}
         <Col sm={8}>
           {/*specific service details */}
           <div className="d-md-flex gap-3">
@@ -88,7 +127,9 @@ const ServiceDetail = () => {
             need to be sure there isn't anything embarrassing hidden in the
             middle embar abashing.
           </p>
-          <div className="d-flex gap-5 justify-content-between">
+
+          {/* ------------------steps------------- */}
+          <div className="d-flex gap-5 justify-content-between mt-4 mb-5">
             <div
               style={{ width: "30%" }}
               className="d-flex flex-column justify-content-center align-items-center border rounded-3 py-4 px-4 gap-3"
@@ -126,6 +167,7 @@ const ServiceDetail = () => {
               </p>
             </div>
           </div>
+          <img className="img-fluid rounded-3" src={footerImg} alt="" />
         </Col>
       </Row>
     </Container>
