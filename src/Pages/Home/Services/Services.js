@@ -1,16 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Button } from 'react-bootstrap';
+import UseServices from '../../Hooks/UseServices';
 import Service from '../Service/Service';
 import "./Services.css";
 const Services = () => {
-
-    const[services, setServices] = useState([]);
-
-    useEffect(() =>{
-        fetch('Services.json')
-        .then(res => res.json())
-        .then(data => setServices(data))
-    },[])
+  
+  const {services} = UseServices();
 
     return (
       <div className="pb-1">
@@ -27,7 +22,7 @@ const Services = () => {
         </p>
         <div className="card-container">
           {services.map((service) => (
-            <Service key={service.id} service={service}></Service>
+            <Service key={service._id} service={service}></Service>
           ))}
         </div>
         <Button className='mx-auto d-block mb-5  fw-semibold fs-6' variant="outline-primary">More Services</Button>

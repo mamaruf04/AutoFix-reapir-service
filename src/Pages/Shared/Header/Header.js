@@ -85,7 +85,7 @@ const Header = () => {
               <Nav.Link
                 as={Link}
                 to="login"
-                className="fw-bold text-white btn btn-outline-info"
+                className="fw-bold text-white border rounded-3"
                 style={{ fontSize: "18px" }}
               >
                 Login
@@ -93,7 +93,7 @@ const Header = () => {
               <Nav.Link
                 as={Link}
                 to="signup"
-                className="fw-bold text-white btn btn-outline-info"
+                className="fw-bold text-white border rounded-3"
                 style={{ fontSize: "18px" }}
               >
                 Sign Up
@@ -101,7 +101,7 @@ const Header = () => {
             </>
           ) : (
             <Nav.Link
-            onClick={handleSignOut}
+              onClick={handleSignOut}
               className="fw-bold text-white btn btn-outline-info"
               style={{ fontSize: "18px" }}
             >
