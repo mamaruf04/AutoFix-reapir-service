@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Loading from "../Shared/Loading/Loading";
 
-const OrdersRow = ({ order }) => {
+const OrdersRow = ({ order, handleDelete, handleUpdateStatus }) => {
   const [loading, setLoading] = useState(true);
   const [service, setService] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/services?id=${order.service}`)
+    fetch(`http://localhost:5000/services?id=${order.serviceId}`)
       .then((res) => res.json())
       .then((data) => {
         if (data) {
@@ -14,8 +14,9 @@ const OrdersRow = ({ order }) => {
           setService(data);
         }
       });
-  }, [order.service]);
+  }, [order.serviceId]);
 
+  // loader...
   if (loading) {
     return (
       <Loading className="d-flex align-items-center justify-content-center  vh-100 vw-100"></Loading>
@@ -23,23 +24,38 @@ const OrdersRow = ({ order }) => {
   }
 
   return (
-    <tr key={order._id}>
-      <td className="d-flex justify-content-center align-items-center ">
-        <i className="uil uil-trash-alt fs-2 py-3"></i>
-      </td>
-      <td>
+    <tr style={{ borderStyle: "hidden" }}>
+      <td className="align-middle">
         <img
-          className="rounded-3 img-fluid"
+          width={"80px"}
+          className="img-fluid rounded-3"
           src={service.image}
           alt={service.name}
-          width="80"
-          height="80"
         />
       </td>
-      <td>{order.serviceName}</td>
-      <td>${order.price}</td>
-      <td>order.date</td>
-      <td>Pending</td>
+      <td className="align-middle fw-semibold ">{order.serviceName}</td>
+      <td className="align-middle fw-semibold">${order.price}</td>
+      <td className="align-middle">
+        <small>{order.date}</small>
+      </td>
+      <td className="align-middle">
+        <button
+          onClick={() => handleUpdateStatus(order)}
+          className={
+            order.status === "pending"
+              ? "badge border-0 text-bg-warning"
+              : "badge border-0 text-bg-success"
+          }
+        >
+          {order.status}
+        </button>
+      </td>
+      <td className="align-middle">
+        <i
+          onClick={() => handleDelete(order)}
+          className="uil uil-trash-alt fs-2 text-danger"
+        ></i>
+      </td>
     </tr>
   );
 };

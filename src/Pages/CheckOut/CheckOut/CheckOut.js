@@ -1,3 +1,4 @@
+import moment from "moment/moment";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useParams } from "react-router-dom";
@@ -5,11 +6,13 @@ import auth from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
 import "../Checkout.css";
 
+
 const CheckOut = () => {
   const [user] = useAuthState(auth);
   const { checkoutId } = useParams();
   const [service, setService] = useState({});
   const [loading, setLoading] = useState(true);
+  const [date, setDate] = useState(new Date());
 
   const { _id, name, price } = service;
 
@@ -40,9 +43,11 @@ const CheckOut = () => {
     const phone = form.phone.value;
     const alterPhone = form.alterPhone.value;
     const message = form.message.value;
-
+    const fullDate = form.date.value;
+    const date = moment(fullDate).format("DD MMM, YYYY | h:mm A");
+    
     const order = {
-      service: _id,
+      serviceId: _id,
       serviceName: name,
       price,
       customer,
@@ -50,6 +55,8 @@ const CheckOut = () => {
       phone,
       alterPhone,
       message,
+      status: "pending",
+      date
     };
 
     fetch("http://localhost:5000/orders", {
@@ -111,6 +118,7 @@ const CheckOut = () => {
                 type="number"
                 placeholder="Enter alternative number"
               />
+              <input name="date" type="hidden" value={date} />
             </div>
           </div>
           <div className="input-box message">
