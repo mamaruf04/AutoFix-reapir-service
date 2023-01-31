@@ -1,7 +1,7 @@
 import moment from "moment/moment";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import auth from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
 import "../Checkout.css";
@@ -13,8 +13,8 @@ const CheckOut = () => {
   const [service, setService] = useState({});
   const [loading, setLoading] = useState(true);
   const [date, setDate] = useState(new Date());
-
   const { _id, name, price } = service;
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`http://localhost:5000/services?id=${checkoutId}`)
@@ -71,6 +71,7 @@ const CheckOut = () => {
         if (data.acknowledged) {
           alert("order place successfully!");
           form.reset();
+          navigate('/orders')
         }
       });
   };

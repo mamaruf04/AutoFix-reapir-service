@@ -1,3 +1,4 @@
+import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -11,9 +12,24 @@ const Orders = () => {
   const [loading, setLoading] = useState(true);
   const [rerender, setRerender] = useState(false);
 
+  const handleSignOut = () => {
+    signOut(auth);
+  };
+
   useEffect(() => {
-    fetch(`http://localhost:5000/orders?email=${user.email}`)
-      .then((res) => res.json())
+    fetch(`http://localhost:5000/orders?email=${user.email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("AutoFIx-token")}`,
+      },
+    })
+      .then((res) => {
+        if (res.status === 401 || res.status === 403) {
+          alert('your authorization token has been expired. Please login again!')
+          handleSignOut();
+          localStorage.removeItem("AutoFIx-token");
+        }
+       return res.json()
+      })
       .then((data) => {
         if (data) {
           setOrders(data);

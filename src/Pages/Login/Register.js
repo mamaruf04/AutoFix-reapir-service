@@ -23,21 +23,41 @@ const Register = () => {
 
   // updateProfile
   const [updateProfile, updateError] = useUpdateProfile(auth);
-  console.log(user);
+  // console.log(user);
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (user) {
-      navigate(from, { replace: true });
-    }
-  }, [user, navigate, from]);
+  // useEffect(() => {
+  //   if (user) {
+  //     navigate(from, { replace: true });
+  //   }
+  // }, [user, navigate, from]);
 
   const handleSubmit = (e) => {
-    createUserWithEmailAndPassword(email, password);
     e.preventDefault();
+    createUserWithEmailAndPassword(email, password)
+    .then((data) => {
+      // console.log(data.user);
+      const currentUser = {
+        email: data.user.email,
+      };
+
+      fetch("http://localhost:5000/jwt", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(currentUser),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          // console.log(data);
+          localStorage.setItem("AutoFIx-token", data.token);
+          navigate(from, { replace: true });
+        });
+    });
   };
 
   useEffect(() => {

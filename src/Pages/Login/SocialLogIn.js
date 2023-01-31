@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   useSignInWithGithub,
   useSignInWithGoogle
@@ -15,11 +15,33 @@ const SocialLogIn = () => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (user || user2) {
-      navigate(from, { replace: true });
-    }
-  }, [user,user2, navigate, from]);
+  // useEffect(() => {
+  //   if (user || user2) {
+  //     navigate(from, { replace: true });
+  //   }
+  // }, [user,user2, navigate, from]);
+
+  const handleSignInWIthGoogle = () =>{
+    signInWithGoogle()
+    .then(data => {
+      const currentUser = {
+        email : data.user.email
+      };
+
+      fetch("http://localhost:5000/jwt",{
+        method: "POST",
+        headers: {
+          'content-type' : 'application/json'
+        },
+        body: JSON.stringify(currentUser)
+      })
+      .then(res => res.json())
+      .then(data => {
+        localStorage.setItem("AutoFIx-token", data.token);
+        navigate(from, { replace: true });
+      })
+    })
+  }
 
   if (googleLoading || gitLoading) {
     return <Loading></Loading>
@@ -37,7 +59,7 @@ const SocialLogIn = () => {
       <div className="container d-block d-md-flex justify-content-around mt-3 text-center rounded">
         <button
           className="border-0 py-2 px-2 mt-1 rounded bg-primary text-white"
-          onClick={() => signInWithGoogle()}
+          onClick={handleSignInWIthGoogle}
         >
           <i className="uil uil-google fs-5 me-1 text-black"></i>
           Continue with Google

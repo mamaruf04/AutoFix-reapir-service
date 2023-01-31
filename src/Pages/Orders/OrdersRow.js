@@ -51,10 +51,12 @@ const OrdersRow = ({ order, handleDelete, handleUpdateStatus }) => {
         </button>
       </td>
       <td className="align-middle">
-        <i
-          onClick={() => handleDelete(order)}
-          className="uil uil-trash-alt fs-2 text-danger"
-        ></i>
+        <button className="border-0 rounded-circle px-2 py-0">
+          <i
+            onClick={() => handleDelete(order)}
+            className="uil uil-trash-alt fs-2 text-danger"
+          ></i>
+        </button>
       </td>
     </tr>
   );

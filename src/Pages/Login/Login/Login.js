@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword
@@ -42,29 +42,42 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (user) {
-      navigate(from, { replace: true });
-    }
-  }, [user, navigate, from]);
 
-  // if (loading || sending) {
-  //   return <Loading></Loading>;
-  // }
+  const handleLogin = (e) => {
+    e.preventDefault();
+    signInWithEmailAndPassword(email, password)
+    .then(data => {
+      // console.log(data.user);
+      const currentUser = {
+        email: data.user.email,
+      };
+
+      fetch("http://localhost:5000/jwt",{
+        method:"POST",
+        headers:{
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(currentUser)
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        localStorage.setItem('AutoFIx-token', data.token);
+        navigate(from, { replace: true });
+      })
+
+    })
+  };
+
   return (
     <>
       <div className="account-section d-flex align-items-center justify-content-evenly my-5 flex-wrap">
-        <img  className="w-50 img-fluid" src={loginImg} alt="" />
+        <img className="w-50 img-fluid" src={loginImg} alt="" />
         <div className="account-container">
           <div className="forms">
             <div className="form login">
               <span className="title">Login</span>
-              <form
-                onSubmit={(e) =>
-                  signInWithEmailAndPassword(email, password) &&
-                  e.preventDefault()
-                }
-              >
+              <form onSubmit={handleLogin}>
                 <div className="input-field">
                   <input
                     onBlur={(e) => setEmail(e.target.value)}
